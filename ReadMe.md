@@ -65,7 +65,8 @@ let r[0..n] be a new array r[0] = 0
 for j = 1 to n 
   q = -![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png) 
   for i = 1 to j 
-    q = max(q,p[i] + r[j-i])    r[j] = q 
+    q = max(q,p[i] + r[j-i])    
+    r[j] = q 
 return r[n] 
 ```
 
@@ -85,8 +86,11 @@ Memoized-CUT-ROD(p,n)
 Let r[0..n] be a new array 
 for i = 0 to n ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
   r[i] = -inf
+  
 return Memoized-CUT-ROD-Aux(p,n,r) 
+
 Memoized-CUT-ROD-Aux(p,n,r) 
+
 if r[n] >= 0 
   return r[n] 
   
