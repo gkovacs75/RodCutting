@@ -35,19 +35,16 @@ The recursive top-down implementation uses a brute force approach to solve the p
 
 *Pseudocode:* 
 
-`
-CUT-ROD(p,n) 
+> CUT-ROD(p,n) 
+> if n == 0 
+>   return 0 ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
+>
+> q = -inf
+>
+> for i = 1 to n 
+>
+> q = max(q,p[i] + CUT-ROD(p,n-i) return q 
 
-if n == 0 
-
-  return 0 ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
-
-q = -inf
-
-for i = 1 to n 
-
-q = max(q,p[i] + CUT-ROD(p,n-i) return q 
-`
 
 *RT Analysis:*
 
