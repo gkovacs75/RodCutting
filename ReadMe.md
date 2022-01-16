@@ -37,8 +37,9 @@ The recursive top-down implementation uses a brute force approach to solve the p
 
 > CUT-ROD(p,n) 
 > if n == 0 
->   return 0 ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
->
+> {
+>   return 0
+> }
 > q = -inf
 >
 > for i = 1 to n 
