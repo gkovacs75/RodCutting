@@ -35,16 +35,15 @@ The recursive top-down implementation uses a brute force approach to solve the p
 
 *Pseudocode:* 
 
-> CUT-ROD(p,n) 
-> if n == 0 
-> {
->   return 0
-> }
-> q = -inf
->
-> for i = 1 to n 
->
-> q = max(q,p[i] + CUT-ROD(p,n-i) return q 
+```
+CUT-ROD(p,n) 
+if n == 0 
+    return 0
+q = -inf
+for i = 1 to n 
+    q = max(q,p[i] + CUT-ROD(p,n-i) 
+return q 
+```
 
 
 *RT Analysis:*
@@ -53,27 +52,22 @@ The recursive top-down implementation uses a brute force approach to solve the p
 
 ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.003.png)
 
-`    `**T(n) = 2n** 
+**T(n) = 2n** 
 
 **Algorithm 2 (Bottom-Up-Dynamic):**  
 
 This algorithm will use dynamic programming and will save the result of each sub problem, thereby reducing the overall RT. I’m going with the bottom-up approach for this example which should yield an RT of Θ(n2). 
 
 *Pseudocode:* 
-
+```
 BOTTOM-UP-CUT-ROD(p,n) 
-
 let r[0..n] be a new array r[0] = 0 
-
 for j = 1 to n 
-
-`   `q = -![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png) 
-
-`   `for i = 1 to j 
-
-`      `q = max(q,p[i] + r[j-i])    r[j] = q 
-
+  q = -![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png) 
+  for i = 1 to j 
+    q = max(q,p[i] + r[j-i])    r[j] = q 
 return r[n] 
+```
 
 *RT Analysis:*
 
@@ -86,37 +80,26 @@ We need to calculate the RT for the nested for loops.
 This algorithm will use dynamic programming and will save the result of each sub problem, thereby reducing the overall RT. I’m going with the top-down memorization approach for this example which should yield an RT of Θ(n2). 
 
 *Pseudocode:* 
-
+```
 Memoized-CUT-ROD(p,n) 
-
 Let r[0..n] be a new array 
-
 for i = 0 to n ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
-
-`   `r[i] = - 
-
+  r[i] = -inf
 return Memoized-CUT-ROD-Aux(p,n,r) 
-
 Memoized-CUT-ROD-Aux(p,n,r) 
-
 if r[n] >= 0 
-
-`   `return r[n] 
-
+  return r[n] 
+  
 if n == 0 
-
-`   `q = 0 
-
+  q = 0 
 else  ![](Aspose.Words.5f109e20-1f52-488a-ba13-f2bdefc12f5c.002.png)
+  q = - inf
 
-`   `q = - 
-
-`   `for i = 1 to n 
-
-`      `q = max(q, p[i] + Memoized-CUT-ROD-Aux(p,n-I,r)) r[n] = q 
+for i = 1 to n 
+  q = max(q, p[i] + Memoized-CUT-ROD-Aux(p,n-I,r)) r[n] = q 
 
 return q 
-
+```
 *RT Analysis:*
 
 Same as the bottom up algorithm, **O(n2)**
